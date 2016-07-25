@@ -1,0 +1,8 @@
+*.pyc
+*.pyd
+*.c
+.idea/
+*.bmp
+*.jpg
+*.png
+*/__pycache__/
