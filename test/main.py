@@ -20,5 +20,8 @@ for inputIndex in range(len(inputNames)):
     inputName = inputNames[inputIndex]
     input = img_as_float(io.imread(inputDir + inputName))
 
+    outputMean = filters.mean(input)
+    io.imsave(outputDir + inputName + '_mean.bmp', outputMean)
+
     outputGaussian = filters.gaussian(input)
     io.imsave(outputDir + inputName + '_gaussian.bmp', outputGaussian)

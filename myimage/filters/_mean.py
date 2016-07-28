@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Jul 24 23:03:09 2016
+Created on Thu Jul 28 21:04:10 2016
 
 @author: scloudyy
 """
@@ -8,17 +8,11 @@ Created on Sun Jul 24 23:03:09 2016
 import numpy as np
 from myimage import common
 
-def gaussian(input, size = 3, theta = 1):
+def mean(input, size = 3):
     height, width, channel = np.shape(input)
     output = np.zeros([height, width, channel])
     kernal = np.zeros([size, size])
-    center = (size - 1) / 2
-
-    for i in range(size):
-        for j in range(size):
-            k = np.exp(- ((i - center)**2 + (j - center)**2) /
-                       (2 * theta**2))
-            kernal[i, j] = k
+    kernal[0:size, 0:size] = 1
     kernal = kernal / np.sum(kernal)
 
     output = common.convolution(input, kernal)
